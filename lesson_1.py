@@ -29,44 +29,24 @@ else:
 # * Решить задачу под пунктом b, не создавая новый список.
 
 
+def sum_digits(value):
+    res = 0
 
-arr = [i ** 3 for i in range(1, 1000, 2)]
+    while value != 0:
+        res += value % 10
+        value //= 10
+
+    return res
+
+
+arr = [i**3 for i in range(1, 1001, 2)]
 print(arr)
-arr1 = []
-summ = int
-for i in arr:
-    a = i % 10
-    b = i // 10 % 10
-    c = i // 10 // 10 % 10
-    d = i // 10 // 10 // 10 % 10
-    e = i // 10 // 10 // 10 // 10 % 10
-    f = i // 10 // 10 // 10 // 10 // 10 % 10
-    g = i // 10 // 10 // 10 // 10 // 10 // 10 % 10
-    h = i // 10 // 10 // 10 // 10 // 10 // 10 // 10 % 10
-    i = i // 10 // 10 // 10 // 10 // 10 // 10 // 10 // 10 % 10
-    summ = a + b + c + d + e + f + g + h + i
+res1 = sum(filter(lambda num: sum_digits(num) % 7 == 0, arr))
+res2 = sum(filter(lambda num: sum_digits(num + 17) % 7 == 0, arr))
 
-    if summ % 7 == 0:
-        arr1.append(summ)
-print(sum(arr1))
 
-arr2 = [(i ** 3 + 17) for i in range(1, 1000, 2)]
-print(arr2)
-arr3 = []
-for i in arr2:
-    a = i % 10
-    b = i // 10 % 10
-    c = i // 10 // 10 % 10
-    d = i // 10 // 10 // 10 % 10
-    e = i // 10 // 10 // 10 // 10 % 10
-    f = i // 10 // 10 // 10 // 10 // 10 % 10
-    g = i // 10 // 10 // 10 // 10 // 10 // 10 % 10
-    h = i // 10 // 10 // 10 // 10 // 10 // 10 // 10 % 10
-    i = i // 10 // 10 // 10 // 10 // 10 // 10 // 10 // 10 % 10
-    summ = a + b + c + d + e + f + g + h + i
-    if summ % 7 == 0:
-        arr3.append(summ)
-print(sum(arr3))
+print(res1)
+print(res2)
 
 # Задание №3
 # Реализовать склонение слова «процент» во фразе «N процентов». Вывести эту фразу на экран отдельной строкой для каждого из чисел в интервале от 1 до 100:
