@@ -37,6 +37,7 @@ for i in range(len(list)):
 str_list = ' '.join(new_list)
 
 print(*new_list)
+
 print(str_list)
 
 
