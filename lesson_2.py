@@ -24,26 +24,22 @@ new_list = []
 for i in range(len(list)):
     if list[i].isdigit():
         value = f'0{list[i]}'
-        new_list.extend(['"', value, '"'])
+        new_list.append(f'"{value}"')
 
     elif list[i][0] in '+-':
         sign = list[i][0]
         value = f'{sign}0{list[i][1:]}'
-        new_list.extend(['"', value, '"'])
+        new_list.append(f'"{value}"')
 
     elif not list[i].isdigit():
         value = list[i]
         new_list.extend([value])
-
-print(*new_list)
-
 str_list = ' '.join(new_list)
 
-str_list = str_list.replace('" 05 "', '"05"')
-str_list = str_list.replace('" 017 "', '"017"')
-str_list = str_list.replace('" +05 "', '"+05"')
-
+print(*new_list)
 print(str_list)
+
+
 
 print('\n' + 'Задание #4' + '*' * 100)
 # 4. Дан список, содержащий искажённые данные с должностями и именами сотрудников:
