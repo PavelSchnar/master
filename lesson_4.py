@@ -1,9 +1,13 @@
 from utils import currency_rates
+import sys
 
-print(currency_rates('eur'))
-print(currency_rates('usd'))
-print(currency_rates('GBP'))
-print(currency_rates('---'))
-print(currency_rates())
+command = sys.argv[1]
 
+if command == 'USD':
+    print(currency_rates('usd'))
 
+elif command == 'EUR':
+    print(currency_rates('eur'))
+
+elif command == 'GBP':
+    print(currency_rates('gbp'))
